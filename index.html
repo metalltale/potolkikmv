@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Натяжные потолки — установка и монтаж</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #f7f8fb;
+      --bg-card: #ffffff;
+      --text: #1f2329;
+      --text-muted: #6b7280;
+      --accent: #3b82f6;
+      --accent-hover: #2563eb;
+      --border: #e5e7eb;
+      --radius: 16px;
+      --shadow: 0 10px 30px rgba(0,0,0,0.08);
+      --shadow-hover: 0 14px 36px rgba(59,130,246,0.18);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      font-size: 16px;
+    }
+
+    a {
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+      border-radius: 12px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Анимации появления */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(247,248,251,0.9);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(8px);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 20px;
+      letter-spacing: 0.2px;
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    nav ul {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav a {
+      font-size: 14px;
+      color: var(--text-muted);
+      transition: color 0.2s ease, transform 0.2s ease;
+    }
+
+    nav a:hover {
+      color: var(--text);
+      transform: translateY(-1px);
+    }
+
+    .header-cta {
+      display: none;
+    }
+
+    @media (min-width: 900px) {
+      .header-cta {
+        display: inline-flex;
+      }
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      color: var(--text);
+      font-size: 14px;
+      cursor: pointer;
+      transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+      user-select: none;
+    }
+
+    .btn:hover {
+      border-color: var(--accent);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow);
+    }
+
+    .btn-accent {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    .btn-accent:hover {
+      background: var(--accent-hover);
+      border-color: var(--accent-hover);
+      box-shadow: var(--shadow-hover);
+    }
+
+    /* Hero */
+    .hero {
+      padding: 60px 0 40px;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    @media (min-width: 900px) {
+      .hero-inner {
+        grid-template-columns: 1.1fr 0.9fr;
+        padding: 40px 0 60px;
+      }
+    }
+
+    .hero-title {
+      font-size: 32px;
+      line-height: 1.2;
+      margin: 0 0 14px;
+      font-weight: 700;
+    }
+
+    @media (min-width: 700px) {
+      .hero-title {
+        font-size: 42px;
+      }
+    }
+
+    .hero-sub {
+      font-size: 15px;
+      color: var(--text-muted);
+      margin: 0 0 24px;
+    }
+
+    .hero-features {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin: 0 0 28px;
+    }
+
+    .feature {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .feature svg {
+      width: 16px;
+      height: 16px;
+      fill: var(--accent);
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .hero-image {
+      position: relative;
+    }
+
+    .hero-image-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .hero-image-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .hero-image-title {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin: 0 0 8px;
+    }
+
+    .hero-image-img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 10px;
+      background: #eef2f5;
+      display: block;
+    }
+
+    /* Sections common */
+    section {
+      padding: 40px 0 60px;
+    }
+
+    .section-title {
+      font-size: 26px;
+      margin: 0 0 12px;
+      font-weight: 700;
+    }
+
+    @media (min-width: 700px) {
+      .section-title {
+        font-size: 32px;
+      }
+    }
+
+    .section-sub {
+      font-size: 15px;
+      color: var(--text-muted);
+      margin: 0 0 24px;
+      max-width: 700px;
+    }
+
+    /* About */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    @media (min-width: 900px) {
+      .about-grid {
+        grid-template-columns: 1.2fr 0.8fr;
+      }
+    }
+
+    .about-text {
+      font-size: 15px;
+      color: var(--text-muted);
+    }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .stat {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px;
+      text-align: center;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .stat:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+    }
+
+    .stat-value {
+      font-size: 24px;
+      font-weight: 700;
+      margin: 0 0 4px;
+      color: var(--accent);
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    /* Карусель (общая) */
+    .carousel {
+      position: relative;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 12px;
+      box-shadow: var(--shadow);
+    }
+
+    .carousel-track {
+      display: flex;
+      gap: 14px;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      padding: 4px 8px;
+    }
+
+    .carousel-track::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    .carousel-track::-webkit-scrollbar-thumb {
+      background: #d1d5db;
+      border-radius: 6px;
+    }
+
+    .carousel-card {
+      flex: 0 0 260px;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .carousel-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+    }
+
+    .carousel-img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      background: #eef2f5;
+      border-radius: 0;
+    }
+
+    .carousel-body {
+      padding: 12px;
+    }
+
+    .carousel-title {
+      font-size: 15px;
+      margin: 0 0 6px;
+      font-weight: 600;
+    }
+
+    .carousel-text {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    .carousel-nav {
+      display: flex;
+      justify-content: end;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .carousel-btn {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      color: var(--text);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .carousel-btn:hover {
+      border-color: var(--accent);
+      background: rgba(59,130,246,0.08);
+    }
+
+    /* Цены */
+    .prices-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+
+    @media (min-width: 600px) {
+      .prices-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 900px) {
+      .prices-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .price-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .price-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+
+    .price-title {
+      font-size: 18px;
+      margin: 0;
+      font-weight: 700;
+    }
+
+    .price-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    .price-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .price-value {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .price-btn {
+      font-size: 13px;
+    }
+
+    /* Контакт & Форма */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    @media (min-width: 900px) {
+      .contact-grid {
+        grid-template-columns: 1.1fr 0.9fr;
+      }
+    }
+
+    .contact-info {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px;
+    }
+
+    .info-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 0 0 14px;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .info-row svg {
+      width: 18px;
+      height: 18px;
+      fill: var(--accent);
+    }
+
+    .form-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px;
+    }
+
+    .form-title {
+      font-size: 18px;
+      margin: 0 0 12px;
+      font-weight: 600;
+    }
+
+    .form {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    .label {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin: 0 0 6px;
+    }
+
+    .input {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: #ffffff;
+      color: var(--text);
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .input:hover {
+      border-color: #d1d5db;
+    }
+
+    .input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(59,130,246,0.18);
+    }
+
+    .form-submit {
+      margin-top: 4px;
+    }
+
+    .success-message {
+      display: none;
+      margin-top: 12px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      background: rgba(16,185,129,0.12);
+      border: 1px solid rgba(16,185,129,0.35);
+      color: #065f46;
+      font-size: 13px;
+    }
+
+    .success-message.show {
+      display: block;
+    }
+
+    /* Footer */
+    footer {
+      padding: 24px 0;
+      border-top: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    @media (max-width: 600px) {
+      .footer-inner {
+        flex-direction: column;
+        align-items: start;
+      }
+    }
+
+    /* Mobile nav toggle */
+    .nav-toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      color: var(--text);
+      cursor: pointer;
+    }
+
+    @media (min-width: 900px) {
+      .nav-toggle {
+        display: none;
+      }
+    }
+
+    .mobile-nav {
+      display: none;
+      position: absolute;
+      top: 70px;
+      left: 0;
+      right: 0;
+      background: rgba(247,248,251,0.95);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 20px;
+    }
+
+    .mobile-nav.open {
+      display: block;
+    }
+
+    .mobile-nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 10px;
+    }
+
+    .mobile-nav a {
+      display: block;
+      padding: 8px 10px;
+      border-radius: 8px;
+      color: var(--text-muted);
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+
+    .mobile-nav a:hover {
+      background: var(--bg-card);
+      color: var(--text);
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container header-inner">
+      <div class="logo">
+        <span>Потолки</span>Про
+      </div>
+
+      <nav>
+        <ul>
+          <li><a href="#about">О нас</a></li>
+          <li><a href="#reviews">Отзывы</a></li>
+          <li><a href="#prices">Цены</a></li>
+          <li><a href="#portfolio">Работы</a></li>
+          <li><a href="#contact">Контакты</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-cta">
+        <a class="btn btn-accent" href="#contact">
+          Оставить заявку
+        </a>
+      </div>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Меню">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="mobile-nav" id="mobileNav">
+      <ul>
+        <li><a href="#about">О нас</a></li>
+        <li><a href="#reviews">Отзывы</a></li>
+        <li><a href="#prices">Цены</a></li>
+        <li><a href="#portfolio">Работы</a></li>
+        <li><a href="#contact">Контакты</a></li>
+        <li><a href="#contact" class="btn btn-accent" style="display:inline-flex;width:100%">Оставить заявку</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero fade-in">
+    <div class="container hero-inner">
+      <div class="hero-content">
+        <h1 class="hero-title">
+          Натяжные потолки любой сложности: быстро, качественно, с гарантией
+        </h1>
+        <p class="hero-sub">
+          Профессиональный монтаж натяжных потолков в квартирах, офисах и коммерческих помещениях. Чистая работа, точные сроки и аккуратность на каждом этапе.
+        </p>
+
+        <div class="hero-features">
+          <div class="feature">
+            <svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.2h7.6l-6 4.8 2.4 7.2-6-4.8-6 4.8 2.4-7.2-6-4.8h7.6z"/></svg>
+            Гарантия на работы
+          </div>
+          <div class="feature">
+            <svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.2h7.6l-6 4.8 2.4 7.2-6-4.8-6 4.8 2.4-7.2-6-4.8h7.6z"/></svg>
+            Точные сроки
+          </div>
+          <div class="feature">
+            <svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.2h7.6l-6 4.8 2.4 7.2-6-4.8-6 4.8 2.4-7.2-6-4.8h7.6z"/></svg>
+            Аккуратный монтаж
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <a class="btn btn-accent" href="#contact">
+            Оставить заявку
+          </a>
+          <a class="btn" href="#portfolio">
+            Смотреть работы
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-image">
+        <div class="hero-image-card">
+          <p class="hero-image-title">Пример современного натяжного потолка</p>
+          <!-- Заглушка изображения: можно заменить на реальное фото -->
+          <img class="hero-image-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600'%3E%3Crect width='100%25' height='100%25' fill='%23eef2f5'/%3E%3Ctext x='50%25' y='50%25' fill='%239aa3af' font-size='24' text-anchor='middle' dy='10'%3EФото потолка%3C/text%3E%3C/svg%3E" alt="Натяжной потолок в интерьере" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="fade-in">
+    <div class="container">
+      <h2 class="section-title">О нас</h2>
+      <p class="section-sub">
+        Мы — команда опытных монтажников натяжных потолков. Работаем с различными типами помещений: от небольших квартир до больших офисов и торговых залов.
+      </p>
+
+      <div class="about-grid">
+        <div class="about-text">
+          <p>
+            Наши специалисты имеют многолетнюю практику установки натяжных систем: матовые, глянцевые, сатиновые, фотопечать, многоуровневые конструкции, подсветка по периметру и локальная.
+          </p>
+          <p>
+            Мы тщательно готовим поверхность, аккуратно монтируем профили, безопасно натягиваем полотно и оставляем помещение чистым. Каждый этап работы контролируется — от замеров до финальной проверки.
+          </p>
+          <p>
+            Используем качественные материалы от проверенных производителей, даём гарантию на работы и помогаем с выбором решения в зависимости от бюджета и стиля помещения.
+          </p>
+        </div>
+
+        <div class="about-stats">
+          <div class="stat">
+            <p class="stat-value">10+</p>
+            <p class="stat-label">лет на рынке</p>
+          </div>
+          <div class="stat">
+            <p class="stat-value">3 000+</p>
+            <p class="stat-label">установленных потолков</p>
+          </div>
+          <div class="stat">
+            <p class="stat-value">1 год</p>
+            <p class="stat-label">гарантия на работы</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Отзывы (карусель) -->
+  <section id="reviews" class="fade-in">
+    <div class="container">
+      <h2 class="section-title">Отзывы клиентов</h2>
+      <p class="section-sub">
+        Реальные отзывы людей, которые уже установили потолки у нас.
+      </p>
+
+      <div class="carousel">
+        <div class="carousel-track">
+          <!-- Отзыв 1 -->
+          <div class="carousel-card">
+            <div class="carousel-body">
+              <h3 class="carousel-title">Анна, квартира</h3>
+              <p class="carousel-text">
+                Очень довольна работой! Потолки сделали быстро, чисто и аккуратно. Мастеры вежливые, всё объяснили, помогли с выбором.
+              </p>
+            </div>
+          </div>
+
+          <!-- Отзыв 2 -->
+          <div class="carousel-card">
+            <div class="carousel-body">
+              <h3 class="carousel-title">Игорь, офис</h3>
+              <p class="carousel-text">
+                Заказывали потолки в офис — всё прошло отлично. Сделали точно в срок, без пыли и грязи, теперь клиенты сразу говорят, что интерьер выглядит современно.
+              </p>
+            </div>
+          </div>
+
+          <!-- Отзыв 3 -->
+          <div class="carousel-card">
+            <div class="carousel-body">
+              <h3 class="carousel-title">Марина, кафе</h3>
+              <p class="carousel-text">
+                Потолок с фотопечатью выглядит превосходно! Очень красиво, гостей приятно удивили. Ребята настоящие профи, рекомендую.
+              </p>
+            </div>
+          </div>
+
+          <!-- Отзыв 4 -->
+          <div class="carousel-card">
+            <div class="carousel-body">
+              <h3 class="carousel-title">Дмитрий, дача</h3>
+              <p class="carousel-text">
+                Сделали потолки в двух комнатах, всё ровно, без зазоров. Очень удобно, что замеры бесплатные и сразу обсудили все варианты.
+              </p>
+            </div>
+          </div>
+
+          <!-- Отзыв 5 -->
+          <div class="carousel-card">
+            <div class="carousel-body">
+              <h3 class="carousel-title">Елена, квартира</h3>
+              <p class="carousel-text">
+                Пробовала заказывать потолки у других — тут результат намного лучше. Цены адекватные, качество на высоте, всё по договору.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-nav">
+          <button class="carousel-btn" id="reviewsPrev" aria-label="Назад">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </button>
+          <button class="carousel-btn" id="reviewsNext" aria-label="Вперёд">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Цены -->
+  <section id="prices" class="fade-in">
+    <div class="container">
+      <h2 class="section-title">Цены</h2>
+      <p class="section-sub">
+        Прозрачные цены без скрытых дополнений. В стоимость включены замеры, материалы и монтаж.
+      </p>
+
+      <div class="prices-grid">
+        <div class="price-card">
+          <h3 class="price-title">Матовый потолок</h3>
+          <p class="price-desc">
+            Классический белый матовый потолок. Подходит для любых комнат, квартир и офисов.
+          </p>
+          <div class="price-footer">
+            <span class="price-value">от 650 ₽/м²</span>
+            <a class="btn btn-accent price-btn" href="#contact">Заказать</a>
+          </div>
+        </div>
+
+        <div class="price-card">
+          <h3 class="price-title">Глянцевый потолок</h3>
+          <p class="price-desc">
+            Глянцевая поверхность добавляет света и визуально увеличивает пространство.
+          </p>
+          <div class="price-footer">
+            <span class="price-value">от 750 ₽/м²</span>
+            <a class="btn btn-accent price-btn" href="#contact">Заказать</a>
+          </div>
+        </div>
+
+        <div class="price-card">
+          <h3 class="price-title">Парящий потолок</h3>
+          <p class="price-desc">
+            Эффект «парения» за счёт скрытой подсветки по периметру. Современный дизайн.
+          </p>
+          <div class="price-footer">
+            <span class="price-value">от 950 ₽/м²</span>
+            <a class="btn btn-accent price-btn" href="#contact">Заказать</a>
+          </div>
+        </div>
+
+        <div class="price-card">
+          <h3 class="price-title">Многоуровневый</h3>
+          <p class="price-desc">
+            Сложная многоуровневая конструкция с точечной подсветкой и акцентными зонами.
+          </p>
+          <div class="price-footer">
+            <span class="price-value">от 1 200 ₽/м²</span>
+            <a class="btn btn-accent price-btn" href="#contact">Заказать</a>
+          </div>
+        </div>
+
+        <div class="price-card">
+          <h3 class="price-title">Фотопечать</h3>
+          <p class="price-desc">
+            Потолок с индивидуальным изображением: ночной город, небо, абстракция и др.
+          </p>
+          <div class="price-footer">
+            <span class="price-value">от 1 100 ₽/м²</span>
+            <a class="btn btn-accent price-btn" href="#contact">Заказать</a>
+          </div>
+        </div>
+
+        <div class="price-card">
+          <h3 class="price-title">Световые линии</h3>
+          <p class="price-desc">
+            Линейная подсветка в стиле минимализм. Стильно и современно.
+          </p>
+          <div class="price-footer">
+            <span class="price-value">от 1 300 ₽/м²</span>
+            <a class="btn btn-accent price-btn" href="#contact">Заказать</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Работы (карусель с фото) -->
+  <section id="portfolio" class="fade-in">
+    <div class="container">
+      <h2 class="section-title">Наши работы</h2>
+      <p class="section-sub">
+        Примеры установленных потолков в разных помещениях: квартиры, офисы, кафе.
+      </p>
+
+      <div class="carousel">
+        <div class="carousel-track">
+          <!-- Работа 1 -->
+          <div class="carousel-card">
+            <img class="carousel-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect width='100%25' height='100%25' fill='%23eef2f5'/%3E%3Ctext x='50%25' y='50%25' fill='%239aa3af' font-size='18' text-anchor='middle' dy='10'%3EМатовый потолок%3C/text%3E%3C/svg%3E" alt="Матовый натяжной потолок" />
+            <div class="carousel-body">
+              <h3 class="carousel-title">Матовый потолок в гостиной</h3>
+              <p class="carousel-text">
+                Классический матовый потолок белого цвета, идеально вписался в светлый интерьер.
+              </p>
+            </div>
+          </div>
+
+          <!-- Работа 2 -->
+          <div class="carousel-card">
+            <img class="carousel-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect width='100%25' height='100%25' fill='%23eef2f5'/%3E%3Ctext x='50%25' y='50%25' fill='%239aa3af' font-size='18' text-anchor='middle' dy='10'%3EГлянцевый потолок%3C/text%3E%3C/svg%3E" alt="Глянцевый натяжной потолок" />
+            <div class="carousel-body">
+              <h3 class="carousel-title">Глянцевый потолок в прихожей</h3>
+              <p class="carousel-text">
+                Глянцевая поверхность добавила света и визуального объема небольшому пространству.
+              </p>
+            </div>
+          </div>
+
+          <!-- Работа 3 -->
+          <div class="carousel-card">
+            <img class="carousel-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect width='100%25' height='100%25' fill='%23eef2f5'/%3E%3Ctext x='50%25' y='50%25' fill='%239aa3af' font-size='18' text-anchor='middle' dy='10'%3EПарящий потолок%3C/text%3E%3C/svg%3E" alt="Парящий потолок с подсветкой" />
+            <div class="carousel-body">
+              <h3 class="carousel-title">Парящий потолок с подсветкой</h3>
+              <p class="carousel-text">
+                Эффект «парения» за счёт скрытой подсветки по периметру, современный дизайн.
+              </p>
+            </div>
+          </div>
+
+          <!-- Работа 4 -->
+          <div class="carousel-card">
+            <img class="carousel-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect width='100%25' height='100%25' fill='%23eef2f5'/%3E%3Ctext x='50%25' y='50%25' fill='%239aa3af' font-size='18' text-anchor='middle' dy='10'%3EМногоуровневый%3C/text%3E%3C/svg%3E" alt="Многоуровневый натяжной потолок" />
+            <div class="carousel-body">
+              <h3 class="carousel-title">Многоуровневый потолок</h3>
+              <p class="carousel-text">
+                Сложная многоуровневая конструкция с точечной подсветкой и акцентными зонами.
+              </p>
+            </div>
+          </div>
+
+          <!-- Работа 5 -->
+          <div class="carousel-card">
+            <img class="carousel-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect width='100%25' height='100%25' fill='%23eef2f5'/%3E%3Ctext x='50%25' y='50%25' fill='%239aa3af' font-size='18' text-anchor='middle' dy='10'%3EФотопечать%3C/text%3E%3C/svg%3E" alt="Натяжной потолок с фотопечатью" />
+            <div class="carousel-body">
+              <h3 class="carousel-title">Потолок с фотопечатью</h3>
+              <p class="carousel-text">
+                Фотопечать с изображением ночного города, создана индивидуальная дизайнерская идея.
+              </p>
+            </div>
+          </div>
+
+          <!-- Работа 6 -->
+          <div class="carousel-card">
+            <img class="carousel-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect width='100%25' height='100%25' fill='%23eef2f5'/%3E%3Ctext x='50%25' y='50%25' fill='%239aa3af' font-size='18' text-anchor='middle' dy='10'%3EСветовые линии%3C/text%3E%3C/svg%3E" alt="Потолок со световыми линиями" />
+            <div class="carousel-body">
+              <h3 class="carousel-title">Потолок со световыми линиями</h3>
+              <p class="carousel-text">
+                Современное решение с подсветкой в виде линейных светильников, стиль минимализм.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-nav">
+          <button class="carousel-btn" id="portfolioPrev" aria-label="Назад">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </button>
+          <button class="carousel-btn" id="portfolioNext" aria-label="Вперёд">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Контакт -->
+  <section id="contact" class="fade-in">
+    <div class="container">
+      <h2 class="section-title">Контакты</h2>
+      <p class="section-sub">
+        Оставьте заявку — мы перезвоним, обсудим проект, illuminated и сроки, и при необходимости запишем бесплатный замер.
+      </p>
+
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h3 class="section-title" style="font-size:18px;margin:0 0 12px">Как с нами связаться</h3>
+
+          <div class="info-row">
+            <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.6 3.2 4.8 5.6 8.4 6l2.4-6-2.4-2.4L6.6 10.8zM12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8z"/></svg>
+            <span>Работаем по городу и области</span>
+          </div>
+
+          <div class="info-row">
+            <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.6 3.2 4.8 5.6 8.4 6l2.4-6-2.4-2.4L6.6 10.8zM12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8z"/></svg>
+            <span>Бесплатный замер при желании</span>
+          </div>
+
+          <div class="info-row">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            <span>Email: potolki@example.com</span>
+          </div>
+
+          <div class="info-row">
+            <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.6 3.2 4.8 5.6 8.4 6l2.4-6-2.4-2.4L6.6 10.8zM12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8z"/></svg>
+            <span>Телефон: +7 (999) 000-00-00</span>
+          </div>
+        </div>
+
+        <div class="form-card">
+          <h3 class="form-title">Оставить заявку</h3>
+
+          <!-- Вариант 1: Форма → Почта через formsubmit.co -->
+          <!--
+            1. Зайди на https://formsubmit.co/
+            2. В action="https://formsubmit.co/m1top@mail.ru" замени на свою почту.
+            3. При первом запуске подтвердись по email.
+          -->
+          <form
+            class="form"
+            id="requestForm"
+            action="https://formsubmit.co/m1top@mail.ru"
+            method="POST"
+          >
+            <!-- Скрытые настройки для formsubmit (опционально) -->
+            <input type="hidden" name="_subject" value="Новая заявка на натяжные потолки" />
+            <input type="hidden" name="_captcha" value="false" />
+
+            <div>
+              <label class="label" for="name">Как к вам обращаться</label>
+              <input
+                class="input"
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Ваше имя"
+                required
+              />
+            </div>
+
+            <div>
+              <label class="label" for="phone">Телефон</label>
+              <input
+                class="input"
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="+7 (___) ___-__-__"
+                required
+              />
+            </div>
+
+            <button class="btn btn-accent form-submit" type="submit">
+              Оставить заявку
+            </button>
+          </form>
+
+          <div class="success-message" id="successMessage">
+            Спасибо! Ваша заявка отправлена. Мы скоро свяжемся с вами по указанному телефону.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-inner">
+      <div>
+        © <span id="year"></span> ПотолкиПро. Все права защищены.
+      </div>
+      <div>
+        Сайт создан для демонстрации дизайна и структуры.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile nav toggle
+    const navToggle = document.getElementById('navToggle');
+    const mobileNav = document.getElementById('mobileNav');
+
+    navToggle.addEventListener('click', () => {
+      mobileNav.classList.toggle('open');
+    });
+
+    // Close mobile nav on link click
+    mobileNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileNav.classList.remove('open');
+      });
+    });
+
+    // Анимация появления секций (fade-in)
+    const fadeElements = document.querySelectorAll('.fade-in');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    fadeElements.forEach(el => observer.observe(el));
+
+    // Карусель: отзывы
+    const reviewsTrack = document.querySelector('#reviews .carousel-track');
+    const reviewsPrev = document.getElementById('reviewsPrev');
+    const reviewsNext = document.getElementById('reviewsNext');
+
+    function scrollCarousel(track, direction) {
+      const cardWidth = track.querySelector('.carousel-card')?.offsetWidth || 260;
+      const gap = 14;
+      const step = cardWidth + gap;
+      if (direction === 'next') {
+        track.scrollBy({ left: step, behavior: 'smooth' });
+      } else {
+        track.scrollBy({ left: -step, behavior: 'smooth' });
+      }
+    }
+
+    reviewsNext.addEventListener('click', () => scrollCarousel(reviewsTrack, 'next'));
+    reviewsPrev.addEventListener('click', () => scrollCarousel(reviewsTrack, 'prev'));
+
+    // Карусель: работы
+    const portfolioTrack = document.querySelector('#portfolio .carousel-track');
+    const portfolioPrev = document.getElementById('portfolioPrev');
+    const portfolioNext = document.getElementById('portfolioNext');
+
+    portfolioNext.addEventListener('click', () => scrollCarousel(portfolioTrack, 'next'));
+    portfolioPrev.addEventListener('click', () => scrollCarousel(portfolioTrack, 'prev'));
+
+    // ==========================================
+    // Вариант 2: Форма → Google Таблица (пример)
+    // ==========================================
+    // Если ты хочешь отправлять в Google Таблицу:
+    // 1. Создай Таблицу.
+    // 2. Extensions → Apps Script → напиши doPost(e), который принимает JSON и записывает строку.
+    // 3. Deploy → Web app → получи URL.
+    // 4. В JS замени заглушку на этот URL.
+
+    // Пример: если ты подключишь свой URL, можно использовать такой код:
+
+    /*
+    const GOOGLE_SHEETS_URL = 'https://your-webapp-url...'; // <-- твой URL
+
+    document.getElementById('requestForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const time = new Date().toISOString();
+
+      if (!name || !phone) {
+        return;
+      }
+
+      fetch(GOOGLE_SHEETS_URL, {
+        method: 'POST',
+        mode: 'no-cors', // часто нужно для Google Apps Script
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ name, phone, time })
+      }).then(() => {
+        document.getElementById('successMessage').classList.add('show');
+        document.getElementById('requestForm').reset();
+        setTimeout(() => {
+          document.getElementById('successMessage').classList.remove('show');
+        }, 6000);
+      }).catch(() => {
+        // В режиме no-cors ошибка может не прийти, но данные обычно записываются
+        document.getElementById('successMessage').classList.add('show');
+        document.getElementById('requestForm').reset();
+        setTimeout(() => {
+          document.getElementById('successMessage').classList.remove('show');
+        }, 6000);
+      });
+    });
+    */
+
+    // Сейчас форма работает через formsubmit.co (почта), а код для Google Таблицы закомментирован.
+    // Если надо — могу написать скрипт для Google Apps Script полностью, чтобы ты напрямую вставил в Таблицу.
+  </script>
+</body>
+</html>
