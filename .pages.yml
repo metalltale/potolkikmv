@@ -1,0 +1,22 @@
+# Настройка папки для картинок
+media:
+  input: images
+  output: /images
+
+# Настройка ваших HTML-страниц
+content:
+  - name: pages
+    label: Страницы сайта
+    type: collection
+    path: /
+    extension: html
+    format: raw
+    view:
+      fields: [title]
+    fields:
+      - name: title
+        label: Название страницы
+        type: string
+      - name: body
+        label: Текст страницы (HTML-код)
+        type: code
