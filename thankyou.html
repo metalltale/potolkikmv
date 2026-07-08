@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Спасибо за заявку</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Arial, sans-serif;
+      background: #f7f8fb;
+      color: #1f2329;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .card {
+      max-width: 500px;
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: 24px;
+    }
+
+    p {
+      margin: 0 0 20px;
+      font-size: 15px;
+      color: #6b7280;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 18px;
+      border-radius: 12px;
+      border: 1px solid #e5e7eb;
+      background: #3b82f6;
+      color: #fff;
+      font-size: 14px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      background: #2563eb;
+    }
+
+    .installer-svg {
+      width: 120px;
+      height: 120px;
+      margin: 0 0 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <!-- SVG монтажника -->
+    <svg class="installer-svg" viewBox="0 0 120 120" fill="none">
+      <!-- Фон -->
+      <circle cx="60" cy="60" r="50" fill="#eef2f5"/>
+      <!-- Кепка -->
+      <path d="M40 45c0-8 6-14 14-14h12c8 0 14 6 14 14v2h-40v-2z" fill="#3b82f6"/>
+      <rect x="52" y="31" width="16" height="14" fill="#2563eb"/>
+      <!-- Голова -->
+      <circle cx="60" cy="55" r="12" fill="#f5d0b0"/>
+      <!-- Тело -->
+      <rect x="45" y="70" width="30" height="25" rx="6" fill="#3b82f6"/>
+      <!-- Рука с инструментом -->
+      <path d="M75 75c8-2 14 4 14 10s-6 10-14 8" stroke="#f5d0b0" stroke-width="8" stroke-linecap="round"/>
+      <rect x="85" y="70" width="12" height="4" fill="#1f2329"/>
+      <!-- Ноги -->
+      <rect x="48" y="95" width="10" height="15" rx="3" fill="#1f2329"/>
+      <rect x="62" y="95" width="10" height="15" rx="3" fill="#1f2329"/>
+    </svg>
+
+    <h1>Спасибо за вашу заявку!</h1>
+    <p>
+      Мы свяжемся с вами в течение двух часов.
+    </p>
+    <a class="btn" href="/">Назад на сайт</a>
+  </div>
+</body>
+</html>
