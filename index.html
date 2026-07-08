@@ -254,6 +254,13 @@
       display: block;
     }
 
+    /* Высота для SVG монтажника */
+    .installer-svg {
+      width: 140px;
+      height: 140px;
+      margin-bottom: 12px;
+    }
+
     /* Sections common */
     section {
       padding: 40px 0 60px;
@@ -713,6 +720,25 @@
   <section class="hero fade-in">
     <div class="container hero-inner">
       <div class="hero-content">
+        <!-- SVG монтажника -->
+        <svg class="installer-svg" viewBox="0 0 120 120" fill="none">
+          <!-- Фон -->
+          <circle cx="60" cy="60" r="50" fill="#eef2f5"/>
+          <!-- Кепка -->
+          <path d="M40 45c0-8 6-14 14-14h12c8 0 14 6 14 14v2h-40v-2z" fill="#3b82f6"/>
+          <rect x="52" y="31" width="16" height="14" fill="#2563eb"/>
+          <!-- Голова -->
+          <circle cx="60" cy="55" r="12" fill="#f5d0b0"/>
+          <!-- Тело -->
+          <rect x="45" y="70" width="30" height="25" rx="6" fill="#3b82f6"/>
+          <!-- Рука с инструментом -->
+          <path d="M75 75c8-2 14 4 14 10s-6 10-14 8" stroke="#f5d0b0" stroke-width="8" stroke-linecap="round"/>
+          <rect x="85" y="70" width="12" height="4" fill="#1f2329"/>
+          <!-- Ноги -->
+          <rect x="48" y="95" width="10" height="15" rx="3" fill="#1f2329"/>
+          <rect x="62" y="95" width="10" height="15" rx="3" fill="#1f2329"/>
+        </svg>
+
         <h1 class="hero-title">
           Натяжные потолки любой сложности: быстро, качественно, с гарантией
         </h1>
@@ -747,9 +773,24 @@
 
       <div class="hero-image">
         <div class="hero-image-card">
-          <p class="hero-image-title">Пример современного натяжного потолка</p>
-          <!-- Заглушка изображения: можно заменить на реальное фото -->
-          <img class="hero-image-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600'%3E%3Crect width='100%25' height='100%25' fill='%23eef2f5'/%3E%3Ctext x='50%25' y='50%25' fill='%239aa3af' font-size='24' text-anchor='middle' dy='10'%3EФото потолка%3C/text%3E%3C/svg%3E" alt="Натяжной потолок в интерьере" />
+          <p class="hero-image-title">Монтажник натяжных потолков</p>
+          <!-- SVG монтажника вместо заглушки -->
+          <svg class="hero-image-img" viewBox="0 0 400 220" fill="none">
+            <rect width="400" height="220" fill="#eef2f5"/>
+            <!-- Кепка -->
+            <path d="M140 85c0-16 12-28 28-28h24c16 0 28 12 28 28v4h-80v-4z" fill="#3b82f6"/>
+            <rect x="172" y="57" width="32" height="28" fill="#2563eb"/>
+            <!-- Голова -->
+            <circle cx="200" cy="95" r="24" fill="#f5d0b0"/>
+            <!-- Тело -->
+            <rect x="160" y="130" width="80" height="50" rx="12" fill="#3b82f6"/>
+            <!-- Рука с инструментом -->
+            <path d="M240 140c16-4 28 8 28 20s-12 20-28 16" stroke="#f5d0b0" stroke-width="16" stroke-linecap="round"/>
+            <rect x="270" y="130" width="24" height="8" fill="#1f2329"/>
+            <!-- Ноги -->
+            <rect x="170" y="180" width="20" height="30" rx="6" fill="#1f2329"/>
+            <rect x="210" y="180" width="20" height="30" rx="6" fill="#1f2329"/>
+          </svg>
         </div>
       </div>
     </div>
@@ -809,7 +850,7 @@
             <div class="carousel-body">
               <h3 class="carousel-title">Анна, квартира</h3>
               <p class="carousel-text">
-                Очень довольна работой! Потолки сделали быстро, чисто и аккуратно. Мастеры вежливые, всё объяснили, помогли с выбором.
+                Очень довольна работой! Потолки сделали быстро, чисто и аккуратно. Мастера вежливые, всё объяснили, помогли с выбором.
               </p>
             </div>
           </div>
@@ -1047,7 +1088,7 @@
     <div class="container">
       <h2 class="section-title">Контакты</h2>
       <p class="section-sub">
-        Оставьте заявку — мы перезвоним, обсудим проект, illuminated и сроки, и при необходимости запишем бесплатный замер.
+        Оставьте заявку — мы перезвоним, обсудим проект, сроки, и при необходимости запишем бесплатный замер.
       </p>
 
       <div class="contact-grid">
@@ -1078,21 +1119,15 @@
         <div class="form-card">
           <h3 class="form-title">Оставить заявку</h3>
 
-          <!-- Вариант 1: Форма → Почта через formsubmit.co -->
-          <!--
-            1. Зайди на https://formsubmit.co/
-            2. В action="https://formsubmit.co/m1top@mail.ru" замени на свою почту.
-            3. При первом запуске подтвердись по email.
-          -->
           <form
             class="form"
             id="requestForm"
             action="https://formsubmit.co/m1top@mail.ru"
             method="POST"
           >
-            <!-- Скрытые настройки для formsubmit (опционально) -->
             <input type="hidden" name="_subject" value="Новая заявка на натяжные потолки" />
             <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_next" value="https://metalltale.github.io/potolkikmv/thankyou.html" />
 
             <div>
               <label class="label" for="name">Как к вам обращаться</label>
@@ -1201,58 +1236,6 @@
 
     portfolioNext.addEventListener('click', () => scrollCarousel(portfolioTrack, 'next'));
     portfolioPrev.addEventListener('click', () => scrollCarousel(portfolioTrack, 'prev'));
-
-    // ==========================================
-    // Вариант 2: Форма → Google Таблица (пример)
-    // ==========================================
-    // Если ты хочешь отправлять в Google Таблицу:
-    // 1. Создай Таблицу.
-    // 2. Extensions → Apps Script → напиши doPost(e), который принимает JSON и записывает строку.
-    // 3. Deploy → Web app → получи URL.
-    // 4. В JS замени заглушку на этот URL.
-
-    // Пример: если ты подключишь свой URL, можно использовать такой код:
-
-    /*
-    const GOOGLE_SHEETS_URL = 'https://your-webapp-url...'; // <-- твой URL
-
-    document.getElementById('requestForm').addEventListener('submit', (e) => {
-      e.preventDefault();
-
-      const name = document.getElementById('name').value.trim();
-      const phone = document.getElementById('phone').value.trim();
-      const time = new Date().toISOString();
-
-      if (!name || !phone) {
-        return;
-      }
-
-      fetch(GOOGLE_SHEETS_URL, {
-        method: 'POST',
-        mode: 'no-cors', // часто нужно для Google Apps Script
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ name, phone, time })
-      }).then(() => {
-        document.getElementById('successMessage').classList.add('show');
-        document.getElementById('requestForm').reset();
-        setTimeout(() => {
-          document.getElementById('successMessage').classList.remove('show');
-        }, 6000);
-      }).catch(() => {
-        // В режиме no-cors ошибка может не прийти, но данные обычно записываются
-        document.getElementById('successMessage').classList.add('show');
-        document.getElementById('requestForm').reset();
-        setTimeout(() => {
-          document.getElementById('successMessage').classList.remove('show');
-        }, 6000);
-      });
-    });
-    */
-
-    // Сейчас форма работает через formsubmit.co (почта), а код для Google Таблицы закомментирован.
-    // Если надо — могу написать скрипт для Google Apps Script полностью, чтобы ты напрямую вставил в Таблицу.
   </script>
 </body>
 </html>
