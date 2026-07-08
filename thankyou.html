@@ -55,7 +55,7 @@
       background: #2563eb;
     }
 
-    .installer-svg {
+    .hero-icon {
       width: 120px;
       height: 120px;
       margin: 0 0 12px;
@@ -64,30 +64,35 @@
 </head>
 <body>
   <div class="card">
-    <!-- Более человечный SVG монтажника -->
-    <svg class="installer-svg" viewBox="0 0 120 120" fill="none">
-      <!-- Фон -->
+    <!-- Мультяшный монтажник (один) -->
+    <svg class="hero-icon" viewBox="0 0 120 120" fill="none">
+      <!-- Фон круга -->
       <circle cx="60" cy="60" r="50" fill="#eef2f5"/>
       <!-- Кепка -->
-      <path d="M35 48c0-10 8-18 18-18h24c10 0 18 8 18 18v4h-60v-4z" fill="#3b82f6"/>
-      <rect x="48" y="30" width="24" height="18" fill="#2563eb"/>
+      <path d="M30 45c0-12 10-22 24-22h24c14 0 24 10 24 22v6h-72v-6z" fill="#3b82f6"/>
+      <rect x="42" y="23" width="24" height="22" fill="#2563eb"/>
       <!-- Лицо -->
-      <circle cx="60" cy="58" r="16" fill="#f5d0b0"/>
+      <circle cx="60" cy="58" r="18" fill="#f5d0b0"/>
       <!-- Глаза -->
-      <circle cx="54" cy="54" r="2" fill="#1f2329"/>
-      <circle cx="66" cy="54" r="2" fill="#1f2329"/>
+      <circle cx="52" cy="52" r="3" fill="#1f2329"/>
+      <circle cx="68" cy="52" r="3" fill="#1f2329"/>
+      <!-- Брови -->
+      <path d="M48 48c2-2 6-2 8 0" stroke="#1f2329" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M64 48c2-2 6-2 8 0" stroke="#1f2329" stroke-width="1.5" stroke-linecap="round"/>
       <!-- Нос -->
-      <path d="M58 58c1 0 2 2 2 4s-1 2-2 2-2-0-2-2 1-4 2-4z" fill="#e0c0a0"/>
-      <!-- Рот -->
-      <path d="M54 64c2 2 4 2 6 0" stroke="#1f2329" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M58 58c2 0 4 2 4 4s-2 3-4 3-4-1-4-3 2-4 4-4z" fill="#e0c0a0"/>
+      <!-- Рот (улыбка) -->
+      <path d="M52 64c2 3 8 3 10 0" stroke="#1f2329" stroke-width="1.5" stroke-linecap="round"/>
       <!-- Тело -->
-      <rect x="40" y="76" width="40" height="30" rx="8" fill="#3b82f6"/>
+      <rect x="38" y="80" width="44" height="30" rx="8" fill="#3b82f6"/>
+      <!-- Рубашка/ворот -->
+      <path d="M50 80c4 4 8 4 12 0" stroke="#2563eb" stroke-width="2" stroke-linecap="round"/>
       <!-- Рука с инструментом -->
-      <path d="M80 80c8-2 14 2 16 8s-2 12-14 10" stroke="#f5d0b0" stroke-width="10" stroke-linecap="round"/>
-      <rect x="92" y="78" width="14" height="6" fill="#1f2329"/>
+      <path d="M82 84c6-2 10 1 12 5s-2 8-10 6" stroke="#f5d0b0" stroke-width="10" stroke-linecap="round"/>
+      <rect x="88" y="82" width="14" height="6" fill="#1f2329"/>
       <!-- Ноги -->
-      <rect x="44" y="106" width="12" height="14" rx="4" fill="#1f2329"/>
-      <rect x="64" y="106" width="12" height="14" rx="4" fill="#1f2329"/>
+      <rect x="42" y="110" width="12" height="10" rx="4" fill="#1f2329"/>
+      <rect x="66" y="110" width="12" height="10" rx="4" fill="#1f2329"/>
     </svg>
 
     <h1>Спасибо за вашу заявку!</h1>
